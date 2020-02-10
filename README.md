@@ -14,7 +14,7 @@ We want it to fit very naturally and therefore avoid a database if possible.
 - Potions with ingredient order mattering
 - Magical ingredients based on flowers
 - Monsters get more powerful based on distance from (0,0), but are also worth more xp
-- Different trials as you level ex. lightning, wither, posion, fall damage etc.
+- Different trials as you level ex. lightning, wither, posion, fall damage, lava/fire, monsters etc.
   - You get rewards apropriate to the trial you past.
 - You do more damage as you level up, more hit points
 - Armor and weapons can be upgraded with xp
@@ -37,3 +37,11 @@ We want it to fit very naturally and therefore avoid a database if possible.
 - xp for reading books based on page turn speed. Flip through slowly.
 - Talisman to prevent level up, which uses durability. Or a one time use.
 - Tailsman can be nametag or paper
+- As you level up, your fists become equivilant to tools.
+  - Fists being enchanted by slips of paper in your inventory. Called technique scrolls. Maybe dungeon loot only.
+- Areas of high and low spiritual energy based on world gen. Mountains are naturally higher in energy.
+  - Affinity based on area and cultivation technique.
+  - Can have cumulative effect with spiritual formations.
+- Dungeon chests will have a chance of adding a cultiavtion technique.
+- Would be nice to have it able to work in bukkit and forge.
+- 
