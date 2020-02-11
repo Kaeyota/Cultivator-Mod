@@ -44,4 +44,4 @@ We want it to fit very naturally and therefore avoid a database if possible.
   - Can have cumulative effect with spiritual formations.
 - Dungeon chests will have a chance of adding a cultiavtion technique.
 - Would be nice to have it able to work in bukkit and forge.
-- 
+- After passing a certain level, have the ability to live and keep all xp after dying
