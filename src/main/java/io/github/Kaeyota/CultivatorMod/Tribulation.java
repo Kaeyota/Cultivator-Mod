@@ -2,6 +2,7 @@ package io.github.Kaeyota.CultivatorMod;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,12 +11,35 @@ import org.bukkit.event.player.PlayerExpChangeEvent;
 import org.bukkit.event.player.PlayerLevelChangeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class Tribulation implements Listener {
     @EventHandler
     public void onPlayerExpChange(PlayerExpChangeEvent event) {
-        Player p = event.getPlayer();
-        // TODO: Implement bottle necks
+        Player player = event.getPlayer();
+        /*if (player.getLevel() >= 29){
+            // TODO: Implement bottle necks
+            if (player.getExp() >= 0.7){
+                player.setExp((float) 0.90);
+                player.sendMessage("setExp = " + player.getExp() + "");
+                player.setTotalExperience((int) 1300);
+                player.sendMessage("setTotalExperience = " + player.getTotalExperience() + "");
+                player.setTotalExperience(player.getTotalExperience()-event.getAmount());
+
+                if (event.getAmount() == 7){
+                    player.sendMessage("Exp gained" + event.getAmount() + "");
+                    player.sendMessage("Exp before" + player.getTotalExperience() + ".");
+                    player.setExp((float) (player.getExp() + 0.05));
+                    player.sendMessage("Exp after" + player.getTotalExperience() + ".");
+                }
+            }
+
+            player.sendMessage("getExp = "+ player.getExp());
+            player.sendMessage("getTotalExperience = "+ player.getTotalExperience());
+
+
+        }*/
     }
 
     @EventHandler
@@ -23,14 +47,66 @@ public class Tribulation implements Listener {
         if (event.getNewLevel() - event.getOldLevel() < 0)
             return;
         Player player = event.getPlayer();
-        if (event.getNewLevel() >= 40) {
+        if (event.getNewLevel() >= 100) {
             player.sendMessage("The lightning tribulation has been summoned.");
-            tribulationStrike(player, 90);
-            player.setMaxHealth(40);
+            player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1.0F, 1.0F);
+
+        } else if (event.getNewLevel() >= 90) {
+            player.sendMessage("As you absorb experience orbs, you start to feel like there may " +
+                    "be some deeper connection to the world gained.");
+            player.playSound(player.getLocation(), Sound.BLOCK_PORTAL_TRAVEL, 1.0F, 1.0F);
+
+        } else if (event.getNewLevel() >= 80) {
+            player.sendMessage("As you absorb experience orbs, you start to feel like there may " +
+                    "be some deeper connection to the world gained.");
+            player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F, 1.0F);
+
+        } else if (event.getNewLevel() >= 70) {
+            player.sendMessage("As you absorb experience orbs, you start to feel like there may " +
+                    "be some deeper connection to the world gained.");
+            player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_IRON, 1.0F, 1.0F);
+
+        } else if (event.getNewLevel() >= 60) {
+            player.sendMessage("As you absorb experience orbs, you start to feel like there may " +
+                    "be some deeper connection to the world gained.");
+            player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_GOLD, 1.0F, 1.0F);
+
+        } else if (event.getNewLevel() >= 50) {
+            player.sendMessage("As you absorb experience orbs, you start to feel like there may " +
+                    "be some deeper connection to the world gained.");
+            player.playSound(player.getLocation(), Sound.BLOCK_STONE_BREAK, 1.0F, 1.0F);
+
+        } else if (event.getNewLevel() >= 40) {
+            player.sendMessage("As you absorb experience orbs, you start to feel like there may " +
+                    "be some deeper connection to the world gained.");
+            player.playSound(player.getLocation(), Sound.BLOCK_GRAVEL_HIT, 1.0F, 1.0F);
+
         } else if (event.getNewLevel() >= 30) {
-            player.sendMessage("Welcome to the new world of Cultivation. Don't die.");
-            player.getWorld().strikeLightningEffect(player.getLocation());
-            tribulationStrike(player, 19);
+            player.sendMessage("As you absorb experience orbs, you feel a " +
+                    "change. Your body feels renewed. You begin to sense the energy hidden in the world.");
+            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 150, 140));
+            player.playSound(player.getLocation(), Sound.BLOCK_GRAVEL_BREAK, 1.0F, 1.0F);
+            player.setMaxHealth(21);
+
+        } else if (event.getNewLevel() >= 29) {
+            player.sendMessage("getExpToLevel = " + player.getExpToLevel());
+            player.sendMessage("As you absorb experience orbs, you feel a " +
+                    "greater connection to the world gained");
+
+        } else if (event.getNewLevel() >= 28) {
+            player.sendMessage("As you absorb experience orbs, you feel a " +
+                    "deepening connection to the world gained");
+
+        } else if (event.getNewLevel() >= 20) {
+            player.sendMessage("As you absorb experience orbs, you feel a " +
+                    "deeper connection to the world.");
+            player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 150, 130));
+            player.playSound(player.getLocation(), Sound.BLOCK_SAND_BREAK, 1.0F, 1.0F);
+
+        } else if (event.getNewLevel() >= 10) {
+            player.sendMessage("As you absorb experience orbs, you start to feel like there may " +
+                    "be some deeper connection to the world gained.");
+            player.playSound(player.getLocation(), Sound.BLOCK_SLIME_BLOCK_BREAK, 1.0F, 1.0F);
         }
     }
     protected void tribulationStrike(Player player, double damage) {
