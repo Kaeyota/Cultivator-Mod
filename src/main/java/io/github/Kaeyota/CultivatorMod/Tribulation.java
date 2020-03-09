@@ -1,6 +1,7 @@
 package io.github.Kaeyota.CultivatorMod;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
@@ -9,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerExpChangeEvent;
 import org.bukkit.event.player.PlayerLevelChangeEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
@@ -29,6 +31,15 @@ public class Tribulation implements Listener {
         this.plugin.getServer().getPluginManager().registerEvents(this, plugin);
 
         random = new SecureRandom();
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+        event.setJoinMessage(player.getDisplayName() + ChatColor.BLUE + " has joined!");
+
+        // Fix health if health greater than what Minecraft expects
+        player.setHealth(player.getHealth());
     }
 
     @EventHandler
