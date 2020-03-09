@@ -117,3 +117,4 @@ Boosts:
 - Brew pot of xp maybe
 - Flight; level 100+
 - Special cultivation technique - eat food for xp
+- Divine Sense pick up: possible book in inventory
