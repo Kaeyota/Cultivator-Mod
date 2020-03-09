@@ -18,39 +18,29 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.plugin.PluginManager;
 
+import java.security.SecureRandom;
+
 public class Tribulation implements Listener {
     private final Main plugin;
+    private final SecureRandom random;
 
     public Tribulation(Main plugin) {
         this.plugin = plugin;
         this.plugin.getServer().getPluginManager().registerEvents(this, plugin);
+
+        random = new SecureRandom();
     }
 
     @EventHandler
     public void onPlayerExpChange(PlayerExpChangeEvent event) {
         Player player = event.getPlayer();
-        /*if (player.getLevel() >= 29){
-            // TODO: Implement bottle necks
-            if (player.getExp() >= 0.7){
-                player.setExp((float) 0.90);
-                player.sendMessage("setExp = " + player.getExp() + "");
-                player.setTotalExperience((int) 1300);
-                player.sendMessage("setTotalExperience = " + player.getTotalExperience() + "");
-                player.setTotalExperience(player.getTotalExperience()-event.getAmount());
 
-                if (event.getAmount() == 7){
-                    player.sendMessage("Exp gained" + event.getAmount() + "");
-                    player.sendMessage("Exp before" + player.getTotalExperience() + ".");
-                    player.setExp((float) (player.getExp() + 0.05));
-                    player.sendMessage("Exp after" + player.getTotalExperience() + ".");
-                }
-            }
-
-            player.sendMessage("getExp = "+ player.getExp());
-            player.sendMessage("getTotalExperience = "+ player.getTotalExperience());
-
-
-        }*/
+        // Implements experience bottleneck
+        float insight = random.nextFloat();
+        double difficulty = Math.min(0.9, 1 - player.getExp());
+        if (insight <= difficulty) {
+            event.setAmount(0);
+        }
     }
 
     // TODO - doesn't accurately represent damage, ignores a new armor type, protection, etc.
