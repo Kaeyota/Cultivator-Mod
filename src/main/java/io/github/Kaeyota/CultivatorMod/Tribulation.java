@@ -46,8 +46,10 @@ public class Tribulation implements Listener {
 
     @EventHandler
     public void onLevelChange(PlayerLevelChangeEvent event) {
+        // Do nothing if losing levels
         if (event.getNewLevel() - event.getOldLevel() < 0)
             return;
+
         Player player = event.getPlayer();
         switch (event.getNewLevel()) {
             case 100:
