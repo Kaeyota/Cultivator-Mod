@@ -11,7 +11,10 @@ import org.bukkit.event.player.PlayerLevelChangeEvent;
 public class LoginHandler implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        Player p = event.getPlayer();
-        event.setJoinMessage(p.getDisplayName() + ChatColor.BLUE + " has joined!");
+        Player player = event.getPlayer();
+        event.setJoinMessage(player.getDisplayName() + ChatColor.BLUE + " has joined!");
+
+        // Fix health if health greater than what Minecraft expects
+        player.setHealth(player.getHealth());
     }
 }
