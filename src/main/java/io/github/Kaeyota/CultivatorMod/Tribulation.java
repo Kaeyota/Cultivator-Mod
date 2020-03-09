@@ -118,7 +118,7 @@ public class Tribulation implements Listener {
         switch (event.getNewLevel()) {
             case 100:
                 player.sendMessage("TODO");
-                player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 5.0F, 1.0F);
                 break;
             case 90:
                 player.sendMessage("TODO");
@@ -126,23 +126,23 @@ public class Tribulation implements Listener {
                 break;
             case 80:
                 player.sendMessage("TODO");
-                player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_DIAMOND, 10.0F, 1.0F);
                 break;
             case 70:
                 player.sendMessage("TODO");
-                player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_IRON, 1.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_IRON, 10.0F, 1.0F);
                 break;
             case 60:
                 player.sendMessage("TODO");
-                player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_GOLD, 1.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_GOLD, 10.0F, 1.0F);
                 break;
             case 50:
                 player.sendMessage("TODO");
-                player.playSound(player.getLocation(), Sound.BLOCK_STONE_BREAK, 1.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.BLOCK_STONE_BREAK, 10.0F, 1.0F);
                 break;
             case 40:
                 player.sendMessage("This mod is going to try to kill you");
-                player.playSound(player.getLocation(), Sound.BLOCK_GRAVEL_HIT, 1.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.BLOCK_GRAVEL_PLACE, 10.0F, 1.0F);
 
                 tribulationStrike(player, 0.5);
                 break;
@@ -152,13 +152,13 @@ public class Tribulation implements Listener {
                     " Your body feels renewed. You begin to sense the energy hidden in the world."
                 );
                 player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 150, 140));
-                player.playSound(player.getLocation(), Sound.BLOCK_GRAVEL_BREAK, 1.0F, 1.0F);
+                // No sound for Dirt place
+                player.playSound(player.getLocation(), Sound.BLOCK_GRAVEL_BREAK, 10.0F, 1.0F);
 
                 AttributeInstance health = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
                 health.setBaseValue(21);
                 break;
             case 29:
-                player.sendMessage("getExpToLevel = " + player.getExpToLevel());
                 player.sendMessage("As you absorb experience orbs, you feel a " +
                     "greater connection to the world gained");
                 break;
@@ -170,12 +170,12 @@ public class Tribulation implements Listener {
                 player.sendMessage("As you absorb experience orbs, you feel a " +
                     "deeper connection to the world.");
                 player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 150, 130));
-                player.playSound(player.getLocation(), Sound.BLOCK_SAND_BREAK, 1.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.BLOCK_SAND_BREAK, 20.0F, 1.0F);
                 break;
             case 10:
                 player.sendMessage("As you absorb experience orbs, you start to feel like there may " +
                     "be some deeper connection to the world gained.");
-                player.playSound(player.getLocation(), Sound.BLOCK_SLIME_BLOCK_BREAK, 1.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.BLOCK_SLIME_BLOCK_BREAK, 10.0F, 1.0F);
                 break;
         }
     }
