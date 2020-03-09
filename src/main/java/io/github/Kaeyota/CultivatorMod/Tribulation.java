@@ -145,7 +145,7 @@ public class Tribulation implements Listener {
                 player.sendMessage("This mod is going to try to kill you");
                 player.playSound(player.getLocation(), Sound.BLOCK_GRAVEL_PLACE, 10.0F, 1.0F);
 
-                tribulationStrike(player, 0.5);
+                tribulationStrike(player, 1);
                 break;
             case 30:
                 player.sendMessage(
