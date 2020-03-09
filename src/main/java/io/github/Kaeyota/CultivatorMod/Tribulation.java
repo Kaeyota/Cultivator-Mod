@@ -13,6 +13,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.attribute.AttributeInstance;
+import org.bukkit.attribute.Attribute;
 
 public class Tribulation implements Listener {
     @EventHandler
@@ -83,7 +85,9 @@ public class Tribulation implements Listener {
                 );
                 player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 150, 140));
                 player.playSound(player.getLocation(), Sound.BLOCK_GRAVEL_BREAK, 1.0F, 1.0F);
-                player.setMaxHealth(21);
+
+                AttributeInstance health = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                health.setBaseValue(21);
                 break;
             case 29:
                 player.sendMessage("getExpToLevel = " + player.getExpToLevel());
