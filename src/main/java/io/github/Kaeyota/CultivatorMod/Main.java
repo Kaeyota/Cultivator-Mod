@@ -12,8 +12,9 @@ public class Main extends JavaPlugin {
         getLogger().info("onEnable is called!");
         PluginManager pm = Bukkit.getServer().getPluginManager();
         pm.registerEvents(new LoginHandler(), this);
-        pm.registerEvents(new Tribulation(), this);
+        new Tribulation(this);
     }
+
     @Override
     public void onDisable() {
         getLogger().info("onDisable is called!");

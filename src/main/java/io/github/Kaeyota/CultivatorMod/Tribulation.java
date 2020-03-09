@@ -15,8 +15,17 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.plugin.PluginManager;
 
 public class Tribulation implements Listener {
+    private final Main plugin;
+
+    public Tribulation(Main plugin) {
+        this.plugin = plugin;
+        this.plugin.getServer().getPluginManager().registerEvents(this, plugin);
+    }
+
     @EventHandler
     public void onPlayerExpChange(PlayerExpChangeEvent event) {
         Player player = event.getPlayer();
@@ -90,8 +99,13 @@ public class Tribulation implements Listener {
     }
 
     protected void tribulationStrike(final Player player, final double damage) {
-        Entity tribulation = player.getWorld().strikeLightningEffect(player.getLocation());
-        player.damage(damage*(1-getDamageReduced(player)), tribulation);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Entity tribulation = player.getWorld().strikeLightningEffect(player.getLocation());
+                player.damage(damage*(1-getDamageReduced(player)), tribulation);
+            }
+        }.runTaskLater(this.plugin, 20);
     }
 
     @EventHandler
