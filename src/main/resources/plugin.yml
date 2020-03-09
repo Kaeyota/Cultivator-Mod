@@ -1,6 +1,6 @@
 name: CultivatorMod
 version: 1.0
-main: io.github.Kaeyota.CultivatorMod.Main
+main: io.github.Kaeyota.CultivatorMod.CultivatorMod
 author: Kaeyota
 description: Have you ever wanted to become immortal?
 api-version: 1.15

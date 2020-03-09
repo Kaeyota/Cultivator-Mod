@@ -6,7 +6,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin {
+public class CultivatorMod extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("onEnable is called!");

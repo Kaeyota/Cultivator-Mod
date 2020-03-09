@@ -19,9 +19,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.plugin.PluginManager;
 
 public class Tribulation implements Listener {
-    private final Main plugin;
+    private final CultivatorMod plugin;
 
-    public Tribulation(Main plugin) {
+    public Tribulation(CultivatorMod plugin) {
         this.plugin = plugin;
         this.plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
